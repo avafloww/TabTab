@@ -147,7 +147,6 @@ namespace TabTab
             {
                 var actorId1 = Marshal.ReadIntPtr(a1 + 16);
                 var actorId2 = Marshal.ReadIntPtr(a2 + 16);
-                var origResult = targetSortComparatorHook.Original(a1, a2);
 
                 var actorCurHp1 = Marshal.ReadInt32(actorId1 + ActorOffsets.CurrentHp);
                 var actorMaxHp1 = Marshal.ReadInt32(actorId1 + ActorOffsets.MaxHp);
@@ -156,6 +155,10 @@ namespace TabTab
                 var actorCurHp2 = Marshal.ReadInt32(actorId2 + ActorOffsets.CurrentHp);
                 var actorMaxHp2 = Marshal.ReadInt32(actorId2 + ActorOffsets.MaxHp);
                 var actor2Hp = (float) actorCurHp2 / actorMaxHp2;
+                
+                // Ensure we don't call the original method until after checking actor info, otherwise we risk a race condition crash
+                // The original method should still be called anyways, otherwise the allocated memory for the actor array might not be freed?
+                var origResult = targetSortComparatorHook.Original(a1, a2);
 
                 #if DEBUG
                 PluginLog.Log(
