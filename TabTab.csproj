@@ -54,7 +54,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Plugin.json">
+    <None Update="TabTab.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

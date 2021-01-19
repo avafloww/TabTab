@@ -6,7 +6,7 @@ namespace TabTab
     public class PluginUI
     {
         private readonly Plugin instance;
-        private bool visible = false;
+        private bool visible;
 
         public PluginUI(Plugin plugin)
         {
@@ -24,7 +24,7 @@ namespace TabTab
             if (!IsVisible)
                 return;
             
-            ImGui.SetNextWindowSize(new Vector2(375, 330), ImGuiCond.Always);
+            ImGui.SetNextWindowSize(new Vector2(375, 250), ImGuiCond.Always);
             if (ImGui.Begin("TabTab Settings", ref this.visible,
                 ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoResize))
             {
