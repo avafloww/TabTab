@@ -1,7 +1,7 @@
 {
   "Author": "Avaflow",
   "Name": "TabTab",
-  "Description": "Customise the behaviour of tab targeting",
+  "Description": "Customise the behaviour of tab targeting. Use /ptab to open configuration.",
   "InternalName": "TabTab",
   "AssemblyVersion": "1.0.0.0",
   "RepoUrl": "https://git.ava.dev/ava/TabTab",
